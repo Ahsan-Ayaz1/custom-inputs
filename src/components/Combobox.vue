@@ -1,5 +1,5 @@
 <template>
-    <Combobox @update="results = context.node.input(filteredPeople)" v-model="selected">
+    <Combobox v-model="selected">
         <div class="relative mt-1">
             <div
                 class="relative px-3 py-2 flex items-center max-w-md ring-1  focus:outline-none ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>label:first-child]:focus-within:text-blue-500 rounded mb-1">
@@ -43,7 +43,7 @@ import { computed, ref, watch } from "vue"
 const props = defineProps({
     context: Object
 })
-
+const people = ref(props.context.options)
 import {
     Combobox,
     ComboboxInput,
@@ -54,32 +54,20 @@ import {
 } from '@headlessui/vue'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
 
-const people = [
-    { id: 1, name: 'Wade Cooper' },
-    { id: 2, name: 'Arlene Mccoy' },
-    { id: 3, name: 'Devon Webb' },
-    { id: 4, name: 'Tom Cook' },
-    { id: 5, name: 'Tanya Fox' },
-    { id: 6, name: 'Hellen Schmidt' },
-]
-
-const selected = ref(people[0])
+const selected = ref(people.value[0])
 let query = ref('')
-const results = ref()
 
 
 const filteredPeople = computed(() =>
     query.value === ''
-        ? people
-        : people.filter((person) =>
+        ? people.value
+        : people.value.filter((person) =>
             person.name
                 .toLowerCase()
                 .replace(/\s+/g, '')
                 .includes(query.value.toLowerCase().replace(/\s+/g, ''))
         )
 )
-// props.context.node.input(selected.value)
-
 watch(selected, (newValue, oldValue) => {
     props.context.node.input(newValue)
 })
