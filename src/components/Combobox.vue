@@ -35,7 +35,6 @@ watch(selected, (newValue, oldValue) => {
         props.context.node.input(newValue)
     }
 })
-
 </script>
 
 <template>
@@ -58,7 +57,7 @@ watch(selected, (newValue, oldValue) => {
                     </div>
 
                     <ComboboxOption v-for="person in filteredPeople" as="template" :key="person.id" :value="person"
-                        v-slot="{ selected, active }" multiple>
+                        v-slot="{ selected, active }" multiple class="border rounded">
                         <li class="relative text-sm cursor-default max-w-md select-none py-2 pl-10 pr-4" :class="{
                             'bg-blue-500 text-white': active,
                             'text-gray-900': !active,

@@ -48,7 +48,6 @@ const selectedItem = ref([])
             <FormKit :type="comboBox" label="Combobox" :multiple="true" :options="options" name="SelectedOptions"
                 v-model="selectedItem" help="Select or Search Option" />
             <pre>{{ selectedItem }}</pre>
-
         </FormKit>
     </div>
 </template>
