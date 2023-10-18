@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import "maz-ui/css/main.css";
+import "../css/maz-ui-variables.css";
 import "./style.css";
 import App from "./App.vue";
 import router from "./routes";
@@ -10,11 +11,16 @@ import DropdownSelect from "./components/DropdownSelect.vue";
 import MazBtn from "maz-ui/components/MazBtn";
 import MazInput from "maz-ui/components/MazInput";
 import MazPhoneNumberInput from "maz-ui/components/MazPhoneNumberInput";
+// import { genesisIcons } from "@formkit/icons";
 
 const app = createApp(App);
 app.use(
   plugin,
   defaultConfig({
+    // icons: {
+    //   ...genesisIcons,
+    // },
+
     inputs: {
       otp: createInput(DropdownSelect, {
         props: ["options"],

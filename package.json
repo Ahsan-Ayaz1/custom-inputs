@@ -9,8 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formkit/icons": "^1.2.2",
     "@formkit/themes": "^1.3.0-0e6c2ec",
     "@formkit/vue": "^1.3.0-0e6c2ec",
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
     "axios": "^1.5.1",
     "libphonenumber-js": "^1.10.47",
     "maz-ui": "^3.17.0",

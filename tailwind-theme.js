@@ -1,6 +1,6 @@
 export default {
   global: {
-    fieldset: "max-w-md border border-gray-400 rounded px-2 pb-1",
+    // fieldset: "max-w-md border border-gray-400 rounded px-2 pb-1",
     help: "text-xs text-gray-500",
     inner:
       "formkit-disabled:bg-gray-200 formkit-disabled:cursor-not-allowed formkit-disabled:pointer-events-none",
@@ -13,15 +13,15 @@ export default {
     messages: "list-none p-0 mt-1 mb-0",
     outer: "mb-4 formkit-disabled:opacity-50",
     prefixIcon:
-      "w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400 bg-white bg-gradient-to-b from-transparent to-gray-200 [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto",
+      "w-20 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-y-2 border-l-2 border-dashed border-gray-400 text-customYellow bg-gray-50 [&>svg]:w-full [&>svg]:max-w-[4em] [&>svg]:max-h-[2em] [&>svg]:m-auto",
     suffixIcon:
-      "w-7 pr-3 p-3 flex self-stretch grow-0 shrink-0 [&>svg]:w-full [&>svg]:max-w-[1em] [&>svg]:max-h-[1em] [&>svg]:m-auto",
+      "w-7 pr-3 p-3 flex self-stretch grow-0 shrink-0 [&>svg]:w-full [&>svg]:max-w-[1em] cursor-pointer [&>svg]:max-h-[1em] [&>svg]:m-auto",
   },
 
   // Family styles apply to all inputs that share a common family
   "family:box": {
     decorator:
-      "block relative h-5 w-5 mr-2 rounded bg-white bg-gradient-to-b from-transparent to-gray-200 ring-1 ring-gray-400 peer-checked:ring-blue-500 text-transparent peer-checked:text-blue-500",
+      "block relative h-5 w-5 mr-2 rounded bg-white ring-1 ring-gray-400 peer-checked:bg-white peer-checked:border-[6px] peer-checked:border-customYellow peer-checked:ring-customYellow text-transparent peer-checked:text-blue-500",
     decoratorIcon:
       "flex p-[3px] w-full h-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2",
     help: "mb-2 mt-1.5",
@@ -65,7 +65,7 @@ export default {
   },
   "family:text": {
     inner:
-      "flex items-center max-w-md ring-1 ring-gray-400 focus-within:ring-yellow-500 focus-within:ring-2 [&>label:first-child]:focus-within:text-blue-500 rounded mb-1",
+      "flex items-center max-w-md ring-1 ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>label:first-child]:focus-within:text-blue-500 rounded mb-1",
     input:
       "w-full px-3 py-2 border-none text-base text-gray-700 placeholder-gray-400",
   },
@@ -85,18 +85,20 @@ export default {
   },
   file: {
     fileItem: "flex items-center text-gray-800 mb-1 last:mb-0",
-    fileItemIcon: "w-4 mr-2 shrink-0",
+    fileItemIcon: "w-4 hidden mr-2 shrink-0",
     fileList:
-      'shrink grow peer px-3 py-2 formkit-multiple:data-[has-multiple="true"]:mb-6',
-    fileName: "break-all grow text-ellipsis",
+      'shrink grow peer formkit-multiple:data-[has-multiple="true"]:mb-6',
+    fileName:
+      "break-all grow py-6 border-y-2 border-r-2 border-dashed border-gray-400 rounded max-w-md bg-gray-50 text-gray-700 text-ellipsis",
     fileRemove:
-      "relative z-[2] ml-auto text-[0px] hover:text-red-500 pl-2 peer-data-[has-multiple=true]:text-sm peer-data-[has-multiple=true]:text-blue-500 peer-data-[has-multiple=true]:ml-3 peer-data-[has-multiple=true]:mb-2 formkit-multiple:bottom-[0.15em] formkit-multiple:pl-0 formkit-multiple:ml-0 formkit-multiple:left-[1em] formkit-multiple:formkit-prefix-icon:left-[3.75em]",
-    fileRemoveIcon: "block text-base w-3 relative z-[2]",
+      "relative z-[2] hidden peer-data-[has-multiple=true]:block ml-auto text-[0px] hover:text-red-500 pl-2 peer-data-[has-multiple=true]:text-sm peer-data-[has-multiple=true]:text-blue-500 peer-data-[has-multiple=true]:ml-3 peer-data-[has-multiple=true]:mb-2 formkit-multiple:bottom-[0.15em] formkit-multiple:pl-0 formkit-multiple:ml-0 formkit-multiple:left-[1em] formkit-multiple:formkit-prefix-icon:left-[3.75em]",
+    fileRemoveIcon: "block text-base w-3  ",
     inner:
-      "relative max-w-md cursor-pointer formkit-multiple:[&>button]:absolute",
+      "relative max-w-md cursor-pointer formkit-multiple:[&>button]:absolute ",
     input:
-      "cursor-pointer text-transparent absolute top-0 right-0 left-0 bottom-0 opacity-0 z-[2]",
-    noFiles: "flex w-full items-center px-3 py-2 text-gray-400",
+      "cursor-pointer text-transparent absolute border-none opacity-0 z-[2]",
+    noFiles:
+      "flex w-full items-center px-3 py-6 border-y-2 border-r-2 border-dashed border-gray-400 rounded max-w-md bg-gray-50 text-gray-700",
     noFilesIcon: "w-4 mr-2",
   },
   radio: {

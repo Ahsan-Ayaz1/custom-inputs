@@ -1,8 +1,8 @@
-import { fr } from '@formkit/i18n'
+import { fr } from "@formkit/i18n";
 
 const config = {
   locales: { fr },
-  locale: 'fr',
-}
+  locale: "fr",
+};
 
-export default config
+export default config;

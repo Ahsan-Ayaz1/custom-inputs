@@ -1,7 +1,7 @@
 <template>
-  <nav class="bg-gray-200 p-6 grid grid-cols-3">
+  <nav class="bg-gray-200 py-6 px-10 grid grid-cols-2 items-center">
     <RouterLink :to="{ name: 'Home' }" class="col-span-1">
-      Country Code Input
+      Custom Input
     </RouterLink>
 
     <div class="col-span-1 flex justify-end items-center">
