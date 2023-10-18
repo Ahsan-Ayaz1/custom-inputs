@@ -1,3 +1,41 @@
+<script setup>
+import { computed, ref, watch } from "vue"
+import {
+    Combobox,
+    ComboboxInput,
+    ComboboxButton,
+    ComboboxOptions,
+    ComboboxOption,
+    TransitionRoot,
+} from '@headlessui/vue'
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
+
+const props = defineProps({
+    context: Object
+})
+const people = ref(props.context.options)
+const selected = ref(people.value[0])
+const query = ref('')
+const filteredPeople = computed(() =>
+    query.value === ''
+        ? people.value
+        : people.value.filter((person) =>
+            person.name
+                .toLowerCase()
+                .replace(/\s+/g, '')
+                .includes(query.value.toLowerCase().replace(/\s+/g, ''))
+        )
+)
+
+props.context.node.input(selected.value)
+watch(selected, (newValue, oldValue) => {
+    if (newValue) {
+        props.context.node.input(newValue)
+    }
+})
+
+</script>
+
 <template>
     <Combobox v-model="selected">
         <div class="relative mt-1">
@@ -37,39 +75,3 @@
         </div>
     </Combobox>
 </template>
-  
-<script setup>
-import { computed, ref, watch } from "vue"
-const props = defineProps({
-    context: Object
-})
-const people = ref(props.context.options)
-import {
-    Combobox,
-    ComboboxInput,
-    ComboboxButton,
-    ComboboxOptions,
-    ComboboxOption,
-    TransitionRoot,
-} from '@headlessui/vue'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/20/solid'
-
-const selected = ref(people.value[0])
-let query = ref('')
-
-
-const filteredPeople = computed(() =>
-    query.value === ''
-        ? people.value
-        : people.value.filter((person) =>
-            person.name
-                .toLowerCase()
-                .replace(/\s+/g, '')
-                .includes(query.value.toLowerCase().replace(/\s+/g, ''))
-        )
-)
-watch(selected, (newValue, oldValue) => {
-    props.context.node.input(newValue)
-})
-</script>
-  

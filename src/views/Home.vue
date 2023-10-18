@@ -38,7 +38,7 @@ const selectedItem = ref({})
             <FormKit prefix-icon="uploadCloud" type="file" label="Documents" accept=".pdf,.doc,.docx,.xml,.md,.csv"
                 help="Select as many documents as you would like." />
 
-            <FormKit v-model="value" type="radio" label="Stuffed animal" :options="{
+            <FormKit type="radio" label="Stuffed animal" :options="{
                 teddy: 'Bear',
                 lama: 'Lama',
                 lizard: 'Lizard',
