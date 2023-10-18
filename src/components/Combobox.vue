@@ -1,12 +1,11 @@
 <template>
-    <Combobox v-model="selected">
+    <Combobox @update="results = context.node.input(filteredPeople)" v-model="selected">
         <div class="relative mt-1">
             <div
                 class="relative px-3 py-2 flex items-center max-w-md ring-1  focus:outline-none ring-gray-400 focus-within:ring-blue-500 focus-within:ring-2 [&>label:first-child]:focus-within:text-blue-500 rounded mb-1">
                 <ComboboxInput
                     class="w-full border-none focus:outline-none pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
-                    @update="props.context.node.value(e.target.value)" :displayValue="(person) => person.name"
-                    @change="query = $event.target.value" />
+                    :displayValue="(person) => person.name" @change="query = $event.target.value" />
                 <ComboboxButton class="absolute inset-y-0 right-0 flex items-center pr-2">
                     <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
                 </ComboboxButton>
@@ -40,12 +39,10 @@
 </template>
   
 <script setup>
-import { computed, ref } from "vue"
+import { computed, ref, watch } from "vue"
 const props = defineProps({
     context: Object
 })
-
-console.log(props.context.node.value)
 
 import {
     Combobox,
@@ -68,9 +65,10 @@ const people = [
 
 const selected = ref(people[0])
 let query = ref('')
-let results = ref('')
+const results = ref()
 
-let filteredPeople = computed(() =>
+
+const filteredPeople = computed(() =>
     query.value === ''
         ? people
         : people.filter((person) =>
@@ -80,5 +78,10 @@ let filteredPeople = computed(() =>
                 .includes(query.value.toLowerCase().replace(/\s+/g, ''))
         )
 )
+// props.context.node.input(selected.value)
+
+watch(selected, (newValue, oldValue) => {
+    props.context.node.input(newValue)
+})
 </script>
   
