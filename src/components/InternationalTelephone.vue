@@ -26,4 +26,15 @@ watch(countryData, (newValue, oldValue) => {
     </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.vue-tel-input {
+    border-radius: 4px !important;
+    padding: 0.2rem 0.5rem 0.2rem 0rem;
+    display: flex;
+    border: 1px solid #9ca3af;
+}
+
+.vue-tel-input:focus {
+    border: 10px solid red !important;
+}
+</style>
