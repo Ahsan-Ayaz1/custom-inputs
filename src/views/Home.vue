@@ -46,8 +46,8 @@ const selectedItem = ref([])
             }" help="What is your favorite stuffed animal?" />
 
             <FormKit :type="comboBox" label="Combobox" :multiple="true" :options="options" name="SelectedOptions"
-                v-model="selectedItem" help="Select or Search Option" />
-            <pre>{{ selectedItem }}</pre>
+                v-model="selectedItem" help="Select or Search Option" id="headlessui-combobox-input-2" />
+            <!-- <pre>{{ selectedItem }}</pre> -->
         </FormKit>
     </div>
 </template>
