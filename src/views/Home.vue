@@ -45,8 +45,8 @@ const selectedItem = ref([])
                 giraffe: 'Giraffe'
             }" help="What is your favorite stuffed animal?" />
 
-            <FormKit :type="comboBox" label="Combobox" :multiple="true" :options="options" name="SelectedOptions"
-                v-model="selectedItem" help="Select or Search Option" />
+            <FormKit :type="comboBox" label="Combobox" :options="options" name="SelectedOptions" v-model="selectedItem"
+                help="Select or Search Option" />
             <pre>{{ selectedItem }}</pre>
         </FormKit>
     </div>
