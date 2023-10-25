@@ -21,7 +21,7 @@ watch(countryData, (newValue, oldValue) => {
 </script>
 
 <template>
-    <div class=" max-w-md shadow-none  focus:ring-blue-500 focus:border-none border-none">
+    <div class=" max-w-md  focus:ring-blue-500 focus:border-none border-none">
         <vue-tel-input @input="handleInput" :defaultCountry="defaultCountry" mode="international"></vue-tel-input>
     </div>
 </template>
@@ -32,5 +32,6 @@ watch(countryData, (newValue, oldValue) => {
     padding: 0.2rem 0.5rem 0.2rem 0rem;
     display: flex;
     border: 1px solid #9ca3af;
+
 }
 </style>

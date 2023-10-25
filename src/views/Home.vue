@@ -3,6 +3,7 @@ import { createInput } from '@formkit/vue'
 import { ref } from 'vue';
 import InternationalTelephone from '../components/InternationalTelephone.vue';
 import Combobox from "../components/Combobox.vue"
+import CustomCombobox from '../components/CustomCombobox.vue';
 
 const intTelephone = createInput(InternationalTelephone, {
     props: ['options'],
@@ -19,6 +20,10 @@ const options = [
 ]
 
 const comboBox = createInput(Combobox, {
+    props: ['options'],
+})
+
+const customCombobox = createInput(CustomCombobox, {
     props: ['options'],
 })
 
@@ -47,7 +52,10 @@ const selectedItem = ref([])
 
             <FormKit :type="comboBox" label="Combobox" :multiple="true" :options="options" name="SelectedOptions"
                 v-model="selectedItem" help="Select or Search Option" id="headlessui-combobox-input-2" />
-            <!-- <pre>{{ selectedItem }}</pre> -->
+
+            <FormKit :type="customCombobox" label="CustomCombobox" :options="options" name="SelectedOptions"
+                help="Select or Search Option" id="" />
+
         </FormKit>
     </div>
 </template>
